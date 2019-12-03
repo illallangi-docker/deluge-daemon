@@ -21,5 +21,5 @@ if [[ ! -x $DELUGED ]]; then
   exit 1
 fi
 
-echo $DELUGED -c ${DELUGED_CONFIG}/ -d --loglevel=${DELUGE_LOGLEVEL} -l ${DELUGED_LOG}
-$DELUGED -c ${DELUGED_CONFIG}/ -d --loglevel=${DELUGE_LOGLEVEL} -l ${DELUGED_LOG}
+echo $DELUGED -c ${DELUGED_CONFIG}/ -d --loglevel=${DELUGED_LOGLEVEL} -l ${DELUGED_LOG}
+$DELUGED -c ${DELUGED_CONFIG}/ -d --loglevel=${DELUGED_LOGLEVEL} -l ${DELUGED_LOG}
