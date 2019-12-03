@@ -12,14 +12,12 @@ echo $UMASK "$UMASK_SET"
 $UMASK "$UMASK_SET"
 
 DELUGED=$(which deluged)
-DELUGED_LOGLEVEL=${DELUGED_LOGLEVEL:-info}
-DELUGED_CONFIG=${DELUGED_CONFIG:-/config}
-DELUGED_LOG=${DELUGED_LOG:-${DELUGED_CONFIG}/deluged.log}
+DELUGE_DAEMON_LOGLEVEL=${DELUGE_DAEMON_LOGLEVEL:-info}
+DELUGE_DAEMON_CONFIG=${DELUGE_DAEMON_CONFIG:-/config}
 
 if [[ ! -x $DELUGED ]]; then
   echo "deluged binary not found"
   exit 1
 fi
 
-echo $DELUGED -c ${DELUGED_CONFIG}/ -d --loglevel=${DELUGED_LOGLEVEL} -l ${DELUGED_LOG}
-$DELUGED -c ${DELUGED_CONFIG}/ -d --loglevel=${DELUGED_LOGLEVEL} -l ${DELUGED_LOG}
+$DELUGED --config ${DELUGE_DAEMON_CONFIG}/ --loglevel ${DELUGE_DAEMON_LOGLEVEL} --do-not-daemonize
