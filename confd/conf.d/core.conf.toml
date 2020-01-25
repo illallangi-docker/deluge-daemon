@@ -1,0 +1,6 @@
+[template]
+src  = "core.conf.tmpl"
+dest = "/config/core.conf"
+keys = [
+    "/deluge/daemon/port"
+]
