@@ -6,15 +6,23 @@ RUN yum -y install deluge-daemon-1.3.15-12.fc30 which; \
     yum -y update; \
     yum -y clean all
 
+ENV PUID=1000 \
+    PGID=1000
+
+RUN groupadd -g $PGID -r    abc && \
+    useradd  -u $PUID -r -g abc abc
+
 COPY contrib/confd-0.16.0-linux-amd64 /usr/local/bin/confd
 COPY contrib/dumb-init_1.2.2_amd64 /usr/local/bin/dumb-init
+COPY contrib/gosu_1.12_amd64 /usr/local/bin/gosu
 COPY entrypoint.sh /entrypoint.sh
 COPY confd/ /etc/confd/
 
 RUN chmod +x \
         /entrypoint.sh \
         /usr/local/bin/confd \
-        /usr/local/bin/dumb-init
+        /usr/local/bin/dumb-init \
+        /usr/local/bin/gosu
 
 VOLUME /config
 VOLUME /data
