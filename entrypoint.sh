@@ -35,8 +35,11 @@ if [[ ${UID} -eq 0 ]]; then
   groupmod -g ${PGID} abc || exit 1
   echo usermod -g ${PUID} abc
   usermod -g ${PUID} abc || exit 1
-  echo chown -R -v ${PUID}:${PGID} /config
-  chown -R -v ${PUID}:${PGID} /config || exit 1
+
+  echo mkdir -p  /config /data/complete /data/disk /data/downloading /data/watch
+  mkdir -p /config /data/complete /data/disk /data/downloading /data/watch || exit 1
+  echo chown -R -v ${PUID}:${PGID} /config /data/complete /data/disk /data/downloading /data/watch
+  chown -R -v ${PUID}:${PGID} /config /data/complete /data/disk /data/downloading /data/watch || exit 1
 
   echo ${GOSU} abc $0 $*
   ${GOSU} abc $0 $* || exit 1
