@@ -1,4 +1,4 @@
-FROM docker.io/fedora:30
+FROM docker.io/fedora:31
 
 MAINTAINER Andrew Cole <andrew.cole@illallangi.com>
 
