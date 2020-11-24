@@ -2,11 +2,12 @@ FROM docker.io/fedora:30
 
 MAINTAINER Andrew Cole <andrew.cole@illallangi.com>
 
-RUN yum -y install deluge-daemon-1.3.15-12.fc30 which; \
-    yum -y update; \
-    yum -y clean all
+RUN dnf -y install deluge-daemon-1.3.15-12.fc30 which findutils; \
+    dnf -y update; \
+    dnf -y clean all
 
 RUN python3 -m pip install https://github.com/illallangi/DelugeSlackr/archive/master.zip
+RUN python3 -m pip install autotorrent
 
 ENV PUID=1000 \
     PGID=1000
