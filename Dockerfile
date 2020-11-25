@@ -2,7 +2,7 @@ FROM docker.io/fedora:30
 
 MAINTAINER Andrew Cole <andrew.cole@illallangi.com>
 
-RUN dnf -y install deluge-daemon-1.3.15-12.fc30 which findutils; \
+RUN dnf -y install deluge-daemon-1.3.15-12.fc30 which findutils nano; \
     dnf -y update; \
     dnf -y clean all
 
