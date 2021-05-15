@@ -1,0 +1,17 @@
+version: 2
+updates:
+- package-ecosystem: docker
+  directory: "/"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: fedora
+    versions:
+    - ">= 31.a, < 32"
+  - dependency-name: fedora
+    versions:
+    - ">= 32.a, < 33"
+  - dependency-name: fedora
+    versions:
+    - ">= 33.a, < 34"
